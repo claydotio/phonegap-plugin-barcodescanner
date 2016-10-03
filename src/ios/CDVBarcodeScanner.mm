@@ -353,7 +353,7 @@ parentViewController:(UIViewController*)parentViewController
     self.capturing = NO;
     [self.captureSession stopRunning];
     [self.parentViewController dismissViewControllerAnimated:YES completion:callbackBlock];
-    
+
     // viewcontroller holding onto a reference to us, release them so they
     // will release us
     self.viewController = nil;
@@ -670,7 +670,7 @@ parentViewController:(UIViewController*)parentViewController
             0.59 * baseAddress[baseOffset + 1] +
             0.30 * baseAddress[baseOffset + 2];
 
-            greyData[nj*greyWidth + ni] = value;
+            greyData[nj*greyWidth + ni] = static_cast<unsigned char>(255 - value);
         }
     }
 
